@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chuyển đổi tiền tệ</title>
+</head>
+<body>
+    <form action="">
+        <h1>Chuyển đổi tiền tệ</h1>
+        <input type="text" id="gt_vao" value="" oninput="myMoney()"> 
+        <select  id="dv_can">
+            <option value="23000">VND</option>
+            <option value="0.86">EURO</option>
+            <option value="1">USD</option>
+        </select>
+        <br><br>
+        <input type="text" id="gt_ra"> 
+        <select  id="dv_chuyen">
+            <option value="1">USD</option>
+            <option value="0.86">EURO</option>
+            <option value="23000">VND</option>
+        </select>
+        
+        <script>
+            function myMoney() {
+                let number1 = document.getElementById('gt_vao') ;
+                let dv1 = document.getElementById('dv_can');
+                let dv2 = document.getElementById('dv_chuyen');
+
+                let gt_ra = (dv2.value * number1.value) / dv1.value ;
+                document.getElementById('gt_ra').value = gt_ra ;
+            }
+        </script>
+    </form>
+</body>
+</html>

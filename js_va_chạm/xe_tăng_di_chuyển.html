@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .container {
+            width: 1000px;
+            height: 500px;
+            background-color: #fff;
+            margin: 50px auto;
+            border: 20px solid #000;
+            position: relative;
+        }
+    </style>
+    <div class="container">
+        <img src="./right.png" id="tank" style="width:100px; position:absolute; top:100px ; left:100px;">
+        <img src="./quái vật.jpg" id="q_vat" style="width:50px;position: absolute;">
+    </div>
+    
+
+    <script>
+        window.addEventListener('keydown' , myVat);
+        function myVat(event) {
+            let tank = document.getElementById('tank');
+            let x = parseInt(tank.style.left);
+            let y = parseInt(tank.style.top);
+            let gia_tri = 30 ;
+            switch (event.key){
+                case 'd' : 
+                x += gia_tri;
+                break ;   
+                case 'a' : 
+                x -= gia_tri;
+                break ;   
+                case 's' : 
+                y += gia_tri;
+                break ;   
+                case 'w' : 
+                y -= gia_tri;
+                break ;   
+            }
+            tank.style.left = x + 'px' ;
+            tank.style.top = y + 'px' ;
+
+        }
+        function mySi() {
+            let x = Math.floor(Math.random()*900);
+            let y = Math.floor(Math.random()*400);
+            let vat = document.getElementById("q_vat");
+            vat.style.left = x +"px";
+            vat.style.top = y +"px";
+        }
+
+        mySi();
+
+       
+
+        // function checkVaCham() {
+        //     let tank = document.getElementById("tank");
+        //     let star = document.getElementById("q_vat");
+        //     // let x1 = parseInt(tank.style.left);
+        //     // let y1 = parseInt(tank.style.top);
+        //     // let x2 = parseInt(q_vat.style.left);
+        //     // let y2 = parseInt(q_vat.style.top);
+        //     let x1 = parseInt(tank.style.left);
+        //     let y1 = parseInt(tank.style.top);
+        //     let x2 = parseInt(star.style.left);
+        //     let y2 = parseInt(star.style.top);
+        //     let size = 100 ;
+
+        //     let check = x1 + size < x2 || x1 > x2 + size || y1 + size < y2 || y1 > y2 + size ;
+        //     if (!check) {
+        //         alert("chạm");
+        //     }
+        // }
+
+
+
+
+
+
+
+        function checkVaCham() {
+            let tank = document.getElementById("tank");
+            let star = document.getElementById("star");
+        //     let exp = document.getElementById("exp");
+            let size = 50;
+
+            let x1 = parseInt(tank.style.left);
+            let y1 = parseInt(tank.style.top);
+            let x2 = parseInt(star.style.left);
+            let y2 = parseInt(star.style.top);
+
+            let check = x1 + size < x2 || x1 > x2 + size || y1 > y2 + size || y1 + size < y2;
+
+            if(!check){
+                showStar();
+                // upScore();
+                // exp.style.left = x2+"px";
+                // exp.style.top = y2+"px";
+                // exp.style.display = "block";
+                // setTimeout(hideExp,500);
+            }
+        }
+    </script>
+</body>
+
+</html>

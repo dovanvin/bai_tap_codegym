@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+        <input type="text" id="gt1" value="">
+        <input type="text" id="gt2" value="">
+        <br><br>
+        <button onclick="gtTong()">+</button>
+        <button onclick="gtHieu()">-</button>
+        <button onclick="gtTich()">*</button>
+        <button onclick="gtThuong()">/</button>
+        <br>
+        <p id="kq">kết quả</p>
+    
+
+    <script>
+        function gtTong() {
+            let number1 = document.getElementById('gt1').value ;
+            let a = parseFloat(number1) ;
+            let number2 = document.getElementById('gt2').value ;
+            let b = parseFloat(number2) ;
+            let tong = a + b ;
+            document.getElementById('kq').innerText = tong ;
+        }
+        function gtHieu() {
+            let number1 = document.getElementById('gt1').value ;
+            let a = parseFloat(number1) ;
+            let number2 = document.getElementById('gt2').value ;
+            let b = parseFloat(number2) ;
+            let hieu = a - b ;
+            document.getElementById('kq').innerText = hieu ;
+        }
+        function gtTich() {
+            let number1 = document.getElementById('gt1').value ;
+            let a = parseFloat(number1) ;
+            let number2 = document.getElementById('gt2').value ;
+            let b = parseFloat(number2) ;
+            let tich = a * b ;
+            document.getElementById('kq').innerText = tich ;
+        }
+        function gtThuong() {
+            let number1 = document.getElementById('gt1').value ;
+            let a = parseFloat(number1) ;
+            let number2 = document.getElementById('gt2').value ;
+            let b = parseFloat(number2) ;
+            let thuong = a / b ;
+            document.getElementById('kq').innerText = thuong ;
+        }
+
+    </script>
+</body>
+</html>

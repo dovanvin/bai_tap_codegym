@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Đo chỉ số BMI</h1>
+    <p>Nhập chiều cao của bạn:</p>
+    <input type="text" id="chieu-cao" value="">
+    <p>Nhập cân nặng của bạn</p>
+    <input type="text" id="can-nang" value="">
+    <br>
+    <br>
+    <button onclick="myBmi()">TÍNH BMI</button>
+    <p>Chỉ số BMI của bạn là:</p>
+    <input type="text" id="bmi" value="">
+    <br><br>
+    kết luận : <p id="kq"></p>
+
+
+    <script>
+        function myBmi() {
+            let chieu_cao = document.getElementById("chieu-cao");
+            let can_nang = document.getElementById("can-nang");
+
+            let bmi = can_nang.value / (chieu_cao.value * chieu_cao.value);
+            document.getElementById("bmi").value = bmi.toFixed(2);
+
+            let ket_qua;
+            if (bmi < 18.5) {
+                if (bmi < 16) {
+                    ket_qua = 'gầy cấp độ 3'
+                } else if (bmi > 16 && bmi < 17) {
+                    ket_qua = 'gầy cấp độ 2'
+                } else {
+                    ket_qua = 'gầy cấp độ 1'
+                }
+            } else if (bmi > 25) {
+                if (bmi >= 25 && bmi < 30) {
+                    ket_qua = 'thừa cân'
+                } else if (bmi >= 30 && bmi < 35) {
+                    ket_qua = 'béo phì cấp độ 1'
+                } else if (bmi >= 35 && bmi < 40) {
+                    ket_qua = 'béo phì cấp độ 2'
+                } else {
+                    ket_qua = 'béo phì cấp độ 3'
+                }
+            } else {
+                ket_qua = 'bình thường'
+            }
+            document.getElementById('kq').innerHTML = ket_qua;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tank Game</h1>
+    <p id="score">0</p>
+    <div style="position: relative; background-color: black;width: 800px;height: 400px;" id="battle-field">
+        <img id="tank" style="position: absolute;left: 0px;top: 0px;" width="50px" src="./right.png" alt="">
+        <img id="star" src="./quái vật.jpg" width="50px" style="position: absolute; left: 200px;top: 100px;" alt="">
+        <img id="exp" src="exp.gif" width="50px" style="position: absolute;left: 150px;top: 100px;display: none;" alt="">
+    </div>
+    <script>
+        let score = 0;
+        window.addEventListener("keydown", moveTank)
+        function moveTank(event) { //keyboard event
+            let tank = document.getElementById("tank");
+            let speed = 15;
+
+            //Lấy ra tọa độ cũ
+            let x = parseInt(tank.style.left); //100px => 100
+            let y = parseInt(tank.style.top); //100px => 100
+
+            //Thay đổi tọa độ
+            switch (event.key) {
+                case "d":
+                    x = x + speed; // 110
+                    
+                    break;
+                case "a":
+                    x = x - speed;
+                    
+                    break;
+                case "w":
+                    y = y - speed;
+                    
+                    break;
+                case "s":
+                    y = y + speed;
+                    
+                    break;
+            }
+
+            //Hiển thị ở tọa độ mới
+            tank.style.left = x + "px";
+            tank.style.top = y + "px";
+
+            checkVaCham();
+        }
+
+        function showStar() {
+            let x = Math.floor(Math.random()*750);
+            let y = Math.floor(Math.random()*350);
+            let star = document.getElementById("star");
+            star.style.left = x +"px";
+            star.style.top = y +"px";
+        }
+
+        showStar();
+
+        function checkVaCham() {
+            let tank = document.getElementById("tank");
+            let star = document.getElementById("star");
+        //     let exp = document.getElementById("exp");
+            let size = 50;
+
+            let x1 = parseInt(tank.style.left);
+            let y1 = parseInt(tank.style.top);
+            let x2 = parseInt(star.style.left);
+            let y2 = parseInt(star.style.top);
+
+            let check = x1 + size < x2 || x1 > x2 + size || y1 > y2 + size || y1 + size < y2;
+
+            if(!check){
+                showStar();
+                // upScore();
+                // exp.style.left = x2+"px";
+                // exp.style.top = y2+"px";
+                // exp.style.display = "block";
+                // setTimeout(hideExp,500);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="text" placeholder="Loại hoa quả bạn muốn xem giá?" id="gia_qua"><button type="button"
+            onclick="loaiHoaqua()">xem giá hoa quả</button>
+        <p id="ket_qua"></p>
+    </div>
+
+    <script>
+        function loaiHoaqua() {
+            let hoa_qua = document.getElementById('gia_qua').value;
+
+            switch (hoa_qua) {
+                case 'Ổi':
+                case 'Dưa Hấu':
+                    document.getElementById('ket_qua').innerHTML = 'giá 20.000 VNĐ/1kg';
+                    break ;
+                case 'Táo':
+                case 'Xoài':
+                    document.getElementById('ket_qua').innerHTML = 'giá 30.000 VNĐ/1kg';
+                    break ;
+                case 'Cam':
+                case 'Chôm Chôm':
+                    document.getElementById('ket_qua').innerHTML = 'giá 40.000 VNĐ/1kg';
+                    break ;
+                case 'Măng Cụt':
+                    document.getElementById('ket_qua').innerHTML = 'giá 50.000 VNĐ/1kg';
+            }
+        }
+    </script>
+</body>
+
+</html>

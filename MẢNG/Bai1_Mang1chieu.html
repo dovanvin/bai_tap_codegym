@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let myVinh = ['item1','item2','item3','item4'];
+        // document.write(myVinh[0]);
+        // thêm vào cuối
+        myVinh.push('item6');
+        // thêm vào đầu
+        myVinh.unshift('item0');
+        // thêm vaò bất kỳ
+        myVinh.splice(2,2,'iten8','item9');
+        // xoá cuối 
+        // myVinh.length--; đây dùng cách thuần
+        myVinh.pop();
+        // xoá đầu
+        myVinh.shift();
+        // duyệt mảng;
+        for (let i=0 ; i < myVinh.length ; i++) {
+            document.write(myVinh[i]+',');
+            
+            
+        }
+    </script>
+</body>
+</html>
